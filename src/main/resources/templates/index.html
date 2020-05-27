@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{base}" >
+
+<head>
+    <style>
+.button {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+</style>
+
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body style="background-color:#f1f1f1;position: relative;">
+
+<div th:replace="base :: navbar">
+</div>
+
+
+
+<div style="height: 190px;position:relative;">
+    <div class="card-body" style="background-color:#f1f1f1;text-align:center;">
+        <h1 style="position:relative;top:100px;">Employee Management System</h1>
+    </div>
+</div>
+<br>
+<div class="w3-container w3-padding-64 w3-grayscale-min" style="background-color:#bdb7b7;height:700px" id="us">
+    <div class="w3-content">
+        <h1 class="w3-center w3-text-grey"><b>About</b></h1>
+        <p>This Employee Management system is a springboot project with a basic design implemented to demonstrate RestApi with CRUD operations.The Entities considered in this project are Employee and Department with a dependency between them.</p><br>
+        <br><br>
+
+        <p class="w3-center"><a href="/add_employee" class="w3-button w3-black w3-round w3-padding-large w3-large">Add Employee</a></p>
+        <p class="w3-center"><a href="/add_department" class="w3-button w3-black w3-round w3-padding-large w3-large">Add Department</a></p>
+        <p class="w3-center"><a href="/employees" class="w3-button w3-black w3-round w3-padding-large w3-large">List of Employees</a></p>
+        <p class="w3-center"><a href="/departments" class="w3-button w3-black w3-round w3-padding-large w3-large">List of Departments</a></p>
+    </div>
+</div>
+
+
+
+
+
+</body>
+
+</html>

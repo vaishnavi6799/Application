@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of departments</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:replace="base :: navbar">
+</div>
+<div class="container">
+    <div class="well well-lg">
+        <h2>List of Departments</h2>
+        <a style="position: relative;left: 850px;" href="/delete_alldepartments" role="button" class="btn btn-info"><i>Delete All Departments</i></a>
+        <h3 th:if="${#lists.size(department) == 0}">No Department added  yet</h3>
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>CODE</th>
+                <th>NAME</th>
+                <th>DELETE</th>
+                <th>EDIT</th>
+                <th>List of Employees</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="info" th:each="dept : ${department}">
+                <td th:text="${dept.department_ID}"></td>
+                <td th:text="${dept.code_Name}"></td>
+                <td th:text="${dept.department_Name}"></td>
+                <td><a th:href="@{/delete_departments/{id}(id=${dept.department_ID})}" role="button" class="btn btn-danger"><i >Delete</i></a></td>
+                <td><a th:href="@{/edit_department/{id}(id=${dept.department_ID})}" role="button" class="btn btn-info"><i >Edit</i></a></td>
+                <td><a th:href="@{/group_employees/{id}(id=${dept.department_ID})}" role="button" class="btn btn-info"><i>List of Employees</i></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>

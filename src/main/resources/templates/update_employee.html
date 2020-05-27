@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Employee</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:replace="base :: navbar">
+</div>
+<div class="container my-5" style="background-color:#f1f1f1;">
+
+    <h3> Update Employee</h3>
+    <div class="card">
+        <div class="card-body">
+            <div class="col-md-8">
+                <form action="#"
+                      th:action="@{/update_employee/{id}(id=${employee.employeeID})}"
+                      th:object="${employee}" method="post">
+                    <div class="row">
+
+                        <div class="form-group col-md-8">
+                            <label for="emp_id" class="col-form-label">ID</label> <input
+                                type="text" th:field="*{employeeID}" class="form-control" id="emp_id"
+                                placeholder="ID" readonly> <span
+                                th:if="${#fields.hasErrors('employeeID')}" th:errors="*{employeeID}"
+                                class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="firstname" class="col-form-label">Firstname</label> <input
+                                type="text" th:field="*{firstname}" class="form-control" id="firstname"
+                                placeholder="First name" th:required="required"> <span
+                                th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"
+                                class="text-danger"></span>
+                        </div>
+
+
+                        <div class="form-group col-md-8">
+                            <label for="lastname" class="col-form-label">Last Name</label> <input
+                                type="text" th:field="*{lastname}" class="form-control" id="lastname"
+                                placeholder="Last name"> <span
+                                th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"
+                                class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group col-md-8">
+                            <label for="email" class="col-form-label">Email ID</label> <input
+                                type="text" th:field="*{email}" class="form-control" id="email"
+                                placeholder="Email ID"> <span
+                                th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
+                                class="text-danger"></span>
+                        </div>
+                        <div class="form-group col-md-8">
+                            <label class="col-form-label">Department</label>
+                            <select th:field="*{department}" th:required="required">
+                                <option th:each="dept : ${department}" th:value="${dept.department_ID}" th:text="${dept.department_Name}">
+                                </option>
+                            </select>
+
+                        </div>
+                        <div class="form-group col-md-8">
+                            <input type="submit" class="btn btn-primary"
+                                   value="Update Employee">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List Employees</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+<div th:replace="base :: navbar">
+</div>
+
+<div class="container">
+    <div class="well well-lg">
+        <h2>List of Employees</h2>
+        <h3 th:if="${#lists.size(d_employees) == 0}">No Employees added to this department yet</h3>
+
+
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>FIRSTNAME</th>
+                <th>LASTNAME</th>
+                <th>EMAIL</th>
+                <th>DEPARTMENT</th>
+                <th>DELETE</th>
+                <th>EDIT</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="info" th:each="emp : ${d_employees}">
+                <td th:text="${emp.employeeID}"></td>
+                <td th:text="${emp.firstname}"></td>
+                <td th:text="${emp.lastname}"></td>
+                <td th:text="${emp.email}"></td>
+                <td th:text="${emp.department.getDepartment_Name()}"></td>
+                <td><a th:href="@{/delete_employee/{id}(id=${emp.employeeID})}" role="button" class="btn btn-danger"><i >Delete</i></a></td>
+                <td><a th:href="@{/edit_employee/{id}(id=${emp.employeeID})}" role="button" class="btn btn-info"><i >Edit</i></a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
