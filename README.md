@@ -23,3 +23,15 @@ spring.datasource.username​=​root<br>
 spring.datasource.password​=​password<br>
 ● Run ‘Application.java’ file<br>
 ● Application runs on ​http://localhost:8080/<br>
+<b> Some screenshots of the application</b> <br>
+![](images/list_emp.png)
+<br>
+![](images/list_dept.png)
+<br>
+![](images/edit_emp.png)
+<br>
+![](images/edit_dept.png)
+<br>
+![](images/add_emp.png)
+<br>
+![](images/add_dept.png)
