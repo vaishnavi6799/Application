@@ -23,6 +23,7 @@ spring.datasource.username​=​root<br>
 spring.datasource.password​=​password<br>
 ● Run ‘Application.java’ file<br>
 ● Application runs on ​http://localhost:8080/<br>
+● SpringBoot Asks for a default login where the username is "user" and a security key generated is the password.<br>
 <b> Some screenshots of the application</b> <br>
 ![](images/list_emp.png)
 <br>
